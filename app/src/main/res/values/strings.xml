@@ -3,4 +3,22 @@
     <string name="playground_bar_name">Questions</string>
     <string name="settings_bar_name">Settings</string>
     <string name="highscore_bar_name">Highscore</string>
+    <string name="rules_bar_name">Rules - Must Read!</string>
+    <string name="highscore_text">Your Highest Score Ever</string>
+    <string name="play_btn">Play</string>
+    <string name="highscore_btn">Highscore</string>
+    <string name="settings_btn">Settings</string>
+    <string name="rules_title">Rules - Must Read</string>
+    <string name="rules_msg">This is a simple game that asks you Islamic questions requiring answers. It takes ten(10) wrong answers for the game to be over. So let\'s see how far you can get before 10 wrongs.</string>
+    <string name="rules_negBtn">Don\'t show again</string>
+    <string name="rules_posBtn">Show next time</string>
+    <string name="rules_dont_again">Don\'t show again</string>
+    <string name="rules_ok">Okay</string>
+    <string name="game_over">GAME OVER!!!</string>
+    <string name="game_overMsg">play again?</string>
+    <string name="game_overPos">Yeah</string>
+    <string name="game_overNeg">No</string>
+    <string name="stoping_msg">Do you want to stop playing</string>
+    <string name="stoping_msgPo">Yes</string>
+    <string name="stoping_msgNeg">No</string>
 </resources>

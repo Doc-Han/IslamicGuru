@@ -5,9 +5,9 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 public class userPreference {
-    SharedPreferences mSharedPreferences;
+    private SharedPreferences mSharedPreferences;
 
-    public userPreference(Context context){
+    userPreference(Context context){
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
     public int getHighscore(){
@@ -18,6 +18,17 @@ public class userPreference {
         mSharedPreferences
                 .edit()
                 .putInt("highscore" ,highscore)
-                .commit();
+                .apply();
+    }
+
+    public void showRules(boolean bool){
+        mSharedPreferences
+                .edit()
+                .putBoolean("rules", bool)
+                .apply();
+    }
+
+    public boolean showRules(){
+        return mSharedPreferences.getBoolean("rules", true);
     }
 }

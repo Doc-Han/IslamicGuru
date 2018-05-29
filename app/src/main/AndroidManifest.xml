@@ -37,6 +37,11 @@
             android:label="@string/highscore_bar_name"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity
+            android:name=".rules"
+            android:noHistory="true"
+            android:label="@string/rules_bar_name">
+        </activity>
     </application>
 
 </manifest>

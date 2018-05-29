@@ -37,7 +37,7 @@
             android:textColor="#b5ffffff"
             android:textStyle="bold"
             android:onClick="play"
-            android:text="Play"/>
+            android:text="@string/play_btn"/>
 
         <Button
             android:id="@+id/button"
@@ -50,7 +50,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="highscore"
-            android:text="Highscore"/>
+            android:text="@string/highscore_btn"/>
 
         <Button
             android:id="@+id/button2"
@@ -61,7 +61,7 @@
             android:textColor="#b5ffffff"
             android:onClick="settings"
             android:textStyle="bold"
-            android:text="settings"/>
+            android:text="@string/settings_btn"/>
 
     </LinearLayout>
 </RelativeLayout>

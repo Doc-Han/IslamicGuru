@@ -7,18 +7,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean show;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        userPreference userPreference = new userPreference(this);
+        show = userPreference.showRules();
+
+
     }
 
     public void play(View view){
-        Intent i = new Intent(this, playground.class);
-        startActivity(i);
+        if(show){
+            Intent i = new Intent(this, rules.class);
+            startActivity(i);
+        }else{
+            Intent i = new Intent(this, playground.class);
+            startActivity(i);
+        }
+
     }
 
     public void highscore(View view){

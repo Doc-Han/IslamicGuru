@@ -41,7 +41,7 @@ public class playground extends AppCompatActivity {
         moption3 = (Button)findViewById(R.id.option3);
         moption4 = (Button)findViewById(R.id.option4);
 
-        deduction = 0;
+        deduction = 1;
         questionNo = 0;
         noCorrect = 0;
         noWrong = 0;
@@ -53,25 +53,6 @@ public class playground extends AppCompatActivity {
         userPreference = new userPreference(this);
         highscore = userPreference.getHighscore();
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this)
-                .setTitle("Rules - Must Read!")
-                .setMessage("This is a simple game that asks you Islamic questions requiring answers. It takes ten(10) wrong answers for the game to be over. So let's see how far you can get before 10 wrongs.")
-                .setPositiveButton("Show next time", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        deduction = 1;
-                    }
-                })
-                .setNegativeButton("Don't show again", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        deduction = 1;
-                    }
-                });
-        AlertDialog dialog = alert.create();
-        dialog.show();
     }
 
     public void questionLoader(){
@@ -90,15 +71,15 @@ public class playground extends AppCompatActivity {
             restart();
 
             AlertDialog.Builder over = new AlertDialog.Builder(this)
-                    .setTitle("GAME OVER!!!")
-                    .setMessage("play again?")
-                    .setPositiveButton("Yeah", new DialogInterface.OnClickListener() {
+                    .setTitle(getString(R.string.game_over))
+                    .setMessage(getString(R.string.game_overMsg))
+                    .setPositiveButton(getString(R.string.game_overPos), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             restart();
                         }
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setNegativeButton(getString(R.string.game_overNeg), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
@@ -108,13 +89,20 @@ public class playground extends AppCompatActivity {
             alertDialog.show();
 
         }else{
-            mquestion.setText(n.getQuestion()+"");
-            moption1.setText(n.getOption1()+"");
-            moption2.setText(n.getOption2()+"");
-            moption3.setText(n.getOption3()+"");
-            moption4.setText(n.getOption4()+"");
-            mcorrects.setText(noCorrect+"");
-            mwrongs.setText(noWrong+"");
+            String question = n.getQuestion()+"";
+            String op1 = n.getOption1()+"";
+            String op2 =  n.getOption2()+"";
+            String op3 = n.getOption3()+"";
+            String op4 = n.getOption4()+"";
+            String correct = noCorrect+"";
+            String wrong = noWrong+"";
+            mquestion.setText(question);
+            moption1.setText(op1);
+            moption2.setText(op2);
+            moption3.setText(op3);
+            moption4.setText(op4);
+            mcorrects.setText(correct);
+            mwrongs.setText(wrong);
 
             ans = n.getAnswer();
         }
@@ -211,15 +199,15 @@ public class playground extends AppCompatActivity {
         deduction = 0;
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
-                .setMessage("Do you want to stop playing")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setMessage(getString(R.string.stoping_msg))
+                .setPositiveButton(getString(R.string.stoping_msgPo), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         handler.removeCallbacks(myrunnable);
                         finish();
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.stoping_msgNeg), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deduction = 1;

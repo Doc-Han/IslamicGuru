@@ -1,6 +1,8 @@
 package com.dochan.islamicguru;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,11 +22,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void highscore(View view){
-
+        Intent i = new Intent(this, highscore.class);
+        startActivity(i);
     }
 
     public void settings(View view){
+        Intent i = new Intent(this, settings.class);
+        startActivity(i);
+    }
 
+    //PopUp
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Are you sure you want to quit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 }

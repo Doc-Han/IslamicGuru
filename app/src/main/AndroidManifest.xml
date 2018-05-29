@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".splash"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -22,8 +23,18 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
-        <activity android:name=".playground"
-                  android:label="@string/playground_bar_name"
+        <activity
+            android:name=".playground"
+            android:label="@string/playground_bar_name">
+        </activity>
+        <activity
+            android:name=".settings"
+            android:label="@string/settings_bar_name"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
+            android:name=".highscore"
+            android:label="@string/highscore_bar_name"
             android:parentActivityName=".MainActivity">
         </activity>
     </application>

@@ -3,7 +3,9 @@ package com.dochan.islamicguru;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Handler;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,11 +17,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class playground extends AppCompatActivity {
 
     private TextView mquestion,mwrongs,mcorrects;
     private Button moption1,moption2,moption3,moption4;
     private questionFactory n;
+    private ConstraintLayout mLayout;
 
     private int level,questionNo,ans,noCorrect,noWrong,deduction,highscore;
     private ProgressBar progress;
@@ -33,6 +38,8 @@ public class playground extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playground);
 
+
+        mLayout = (ConstraintLayout)findViewById(R.id.playground);
         mwrongs = (TextView)findViewById(R.id.wrongs);
         mcorrects = (TextView)findViewById(R.id.corrects);
         mquestion = (TextView)findViewById(R.id.question);
@@ -56,6 +63,18 @@ public class playground extends AppCompatActivity {
     }
 
     public void questionLoader(){
+        //changing color
+        Random r = new Random();
+        int rnd = r.nextInt(colorStore.colors.length);
+        colorStore color = colorStore.colors[rnd];
+        String deep = color.getDeepColor();
+        String light = color.getLightColor();
+        mLayout.setBackgroundColor(Color.parseColor(light));
+        moption1.setBackgroundColor(Color.parseColor(deep));
+        moption2.setBackgroundColor(Color.parseColor(deep));
+        moption3.setBackgroundColor(Color.parseColor(deep));
+        moption4.setBackgroundColor(Color.parseColor(deep));
+
         if(questionNo < questionFactory.questions.length){
             n = questionFactory.questions[questionNo];
             questionNo++;
@@ -70,23 +89,7 @@ public class playground extends AppCompatActivity {
 
             restart();
 
-            AlertDialog.Builder over = new AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.game_over))
-                    .setMessage(getString(R.string.game_overMsg))
-                    .setPositiveButton(getString(R.string.game_overPos), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            restart();
-                        }
-                    })
-                    .setNegativeButton(getString(R.string.game_overNeg), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                        }
-                    });
-            AlertDialog alertDialog = over.create();
-            alertDialog.show();
+           gameOverDialog();
 
         }else{
             String question = n.getQuestion()+"";
@@ -108,6 +111,28 @@ public class playground extends AppCompatActivity {
         }
 
 
+    }
+
+    public void gameOverDialog(){
+        deduction = 0;
+        AlertDialog.Builder over = new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.game_over))
+                .setMessage(getString(R.string.game_overMsg))
+                .setPositiveButton(getString(R.string.game_overPos), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        restart();
+                    }
+                })
+                .setNegativeButton(getString(R.string.game_overNeg), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setCancelable(false);
+        AlertDialog alertDialog = over.create();
+        alertDialog.show();
     }
 
     public void option_one(View view){
@@ -156,7 +181,13 @@ public class playground extends AppCompatActivity {
             @Override
             public void run() {
                 int progresslevel = progress.getProgress();
-                progress.setProgress(progresslevel - deduction);
+                if(progresslevel <= 1){
+                    restart();
+                    gameOverDialog();
+                }else{
+                    progress.setProgress(progresslevel - deduction);
+                }
+
 
                 handler.postDelayed(this, 150);
             }
@@ -213,7 +244,8 @@ public class playground extends AppCompatActivity {
                         deduction = 1;
                         dialog.dismiss();
                     }
-                });
+                })
+                .setCancelable(false);
 
         AlertDialog dialog = builder.create();
         dialog.show();

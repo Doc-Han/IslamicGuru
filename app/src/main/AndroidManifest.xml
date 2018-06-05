@@ -12,6 +12,7 @@
         <activity
             android:name=".splash"
             android:noHistory="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -21,6 +22,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
         <activity
@@ -30,15 +32,18 @@
         <activity
             android:name=".settings"
             android:label="@string/settings_bar_name"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".highscore"
             android:label="@string/highscore_bar_name"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".rules"
+            android:screenOrientation="portrait"
             android:label="@string/rules_bar_name"
             android:noHistory="true">
         </activity>

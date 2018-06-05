@@ -5,22 +5,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg1"
+    android:background="#FFF"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/textView"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Tell a friend:"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share"
+            android:layout_marginLeft="10dp"
+            android:onClick="share"
+            android:padding="10dp"
+            android:background="@drawable/btn_bg1"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:fontFamily="cursive"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:fontFamily="monospace"
         android:textStyle="bold"
         android:layout_marginBottom="40dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/buttons"
-        android:text="@string/app_name"/>
+        android:text="@string/main_menu_txt"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="326dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="mosque background"
+        app:srcCompat="@drawable/bgg"/>
 
     <LinearLayout
         android:id="@+id/buttons"
@@ -32,10 +65,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#b5ffffff"
-            android:textStyle="bold"
+            style="@style/mainMenu_btns"
+            android:background="@drawable/btn_bg"
             android:onClick="play"
             android:text="@string/play_btn"/>
 
@@ -43,10 +74,8 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#b5ffffff"
-            android:textStyle="bold"
+            style="@style/mainMenu_btns"
+            android:background="@drawable/btn_bg"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:onClick="highscore"
@@ -56,12 +85,12 @@
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:background="@color/colorPrimaryDark"
-            android:textColor="#b5ffffff"
+            style="@style/mainMenu_btns"
+            android:background="@drawable/btn_bg"
             android:onClick="settings"
-            android:textStyle="bold"
             android:text="@string/settings_btn"/>
 
     </LinearLayout>
+
+
 </RelativeLayout>

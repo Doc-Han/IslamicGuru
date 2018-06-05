@@ -15,4 +15,12 @@
     <item name="android:textSize">12sp</item>
     <item name="android:textColor">#96ffffff</item>
 </style>
+
+    <style name="mainMenu_btns">
+        <item name="android:fontFamily">casual</item>
+        <item name="android:background">#B1CF00</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#b9000000</item>
+        <item name="android:padding">20dp</item>
+    </style>
 </resources>

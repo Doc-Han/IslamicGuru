@@ -1,6 +1,8 @@
 package com.dochan.islamicguru;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +15,14 @@ public class splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        MediaPlayer ring = MediaPlayer.create(this,R.raw.bismillah);
+        ring.start();
+
         if(getIntent().getBooleanExtra("exit", false)){
             //here is the code to exit the app
         }
 
-        final Handler handler = new Handler(){
+        @SuppressLint("HandlerLeak") final Handler handler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
                 Intent i = new Intent(splash.this, MainActivity.class);

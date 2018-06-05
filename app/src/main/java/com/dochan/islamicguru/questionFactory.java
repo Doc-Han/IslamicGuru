@@ -14,7 +14,7 @@ public class questionFactory {
       new questionFactory(2,"How many times is the word Qur'an repeated in the Holy Qur'an","67","68","69","70",4),
       new questionFactory(3,"Which is the best drink mentioned in the Holy Qur'an","Honey","Milk","Water","Juice",2),
       new questionFactory(4,"The best eatable thing mentioned in the Holy Qur'an is","Honey","Milk","Water Melon","Dates(Dabino)",1),
-      new questionFactory(5,"Which is the shortes sura of the Holy Qur'an","Falaq","Nass","Ikhlaas","Kausar",4),
+      new questionFactory(5,"Which is the shortest sura of the Holy Qur'an","Falaq","Nass","Ikhlaas","Kausar",4),
       new questionFactory(6,"The most disliked thing by Allah Ta'ala though halal is","Hajj","Divorce","Marriage","Murder",2),
       new questionFactory(7,"Which letter is used the most times in the Holy Qur'an","Wa","Ba'un","Alif","Qaf",3),
       new questionFactory(8,"Which letter is used the least in the Holy Qur'an","Zaa","Maa","Taa","Laa",1),
@@ -33,6 +33,12 @@ public class questionFactory {
       new questionFactory(21,"Which sura is the name of one Holy war","Room","Nasr","Ahzab","Fathi",3),
       new questionFactory(22,"Which sura is the name of one metal","Ra'ad","Hadeed","Ahzab","Naml",2),
       new questionFactory(23,"Which sura is called 'Aroos-ul-Qur'an'(the bride of the Qur'an)","Yaseen","Jinn","Rahman","Fatiha",3),
+      new questionFactory(24,"Which sura is considered as 1/3 of the holy Qur'an","Falaq","Al-Ikhlas","Nass","Fatiha",2),
+	  new questionFactory(25,"Which sura was revealed twice","Iklaas","Yaseen","Fatiha","Ayatul kursiyyu",3),
+	  new questionFactory(26,"In which sura is the backbiter condemned","Humaza","Munafiqun","Nuhu","Zalzala",1),
+	  new questionFactory(27,"In which sura is the name of Allah repeated in every verse","Iklaas","Mumtahana","Fatiha","Mujadala",4),
+	  new questionFactory(28,"In which sura does the letter Fa did not appear","Kaiser","Al-Imaran","Fatiha","Baqara",3),
+	  new questionFactory(29,"How many auras start with the word Tabara Kallazii","3","4","1","2",4),
     };
 
     private questionFactory(int index, String question, String option1, String option2, String option3, String option4, int answer) {

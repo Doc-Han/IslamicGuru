@@ -5,6 +5,7 @@
     <string name="highscore_bar_name">Highscore</string>
     <string name="rules_bar_name">Rules - Must Read!</string>
     <string name="highscore_text">Your Highest Score Ever</string>
+    <string name="main_menu_txt">Learn by answering</string>
     <string name="play_btn">Play</string>
     <string name="highscore_btn">Highscore</string>
     <string name="settings_btn">Settings</string>
@@ -21,4 +22,8 @@
     <string name="stoping_msg">Do you want to stop playing</string>
     <string name="stoping_msgPo">Yes</string>
     <string name="stoping_msgNeg">No</string>
+    <string name="settings_show">Show Rules </string>
+    <string name="about">About</string>
+    <string name="about_msg">"Built by Farhan Yahya.\n \nThis was an app I built to help us learn in a way which is fun\n- Islamic Guru 2018"</string>
+    <string name="about_Po">Ok</string>
 </resources>

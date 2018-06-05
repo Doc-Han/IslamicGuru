@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg2"
+    android:background="#FFF"
     tools:context=".highscore">
 
 
@@ -15,7 +15,12 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textSize="30sp"
-        android:textColor="#adffffff"/>
+        android:background="@drawable/highscore"
+        android:paddingRight="40dp"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="#FFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,9 +28,10 @@
         android:layout_above="@+id/score"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:textColor="#a9ffffff"
+        android:textColor="#000"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="24sp"
+        android:fontFamily="monospace"
         android:text="@string/highscore_text"/>
 
 </RelativeLayout>

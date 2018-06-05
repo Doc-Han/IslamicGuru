@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         userPreference userPreference = new userPreference(this);
-        show = userPreference.showRules();
-
+        show = userPreference.isShowRules();
 
     }
 
@@ -45,7 +44,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    //PopUp
+    public void share(View view){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, "Please download this app in the playstore");
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)

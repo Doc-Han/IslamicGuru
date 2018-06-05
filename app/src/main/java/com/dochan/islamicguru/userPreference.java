@@ -21,14 +21,15 @@ public class userPreference {
                 .apply();
     }
 
+
+    public boolean isShowRules(){
+        return mSharedPreferences.getBoolean("rules", true);
+    }
+
     public void showRules(boolean bool){
         mSharedPreferences
                 .edit()
                 .putBoolean("rules", bool)
                 .apply();
-    }
-
-    public boolean showRules(){
-        return mSharedPreferences.getBoolean("rules", true);
     }
 }

@@ -83,9 +83,8 @@ public class playground extends AppCompatActivity {
         }
         if(noWrong >= 5){
 
-            if(noCorrect > highscore){
-                userPreference.setHighscore(noCorrect);
-            }
+                highscoreSetter();
+
 
             restart();
 
@@ -111,6 +110,12 @@ public class playground extends AppCompatActivity {
         }
 
 
+    }
+
+    public void highscoreSetter(){
+        if(noCorrect > highscore) {
+            userPreference.setHighscore(noCorrect);
+        }
     }
 
     public void gameOverDialog(){
@@ -182,6 +187,7 @@ public class playground extends AppCompatActivity {
             public void run() {
                 int progresslevel = progress.getProgress();
                 if(progresslevel <= 1){
+                    highscoreSetter();
                     restart();
                     gameOverDialog();
                 }else{
@@ -235,6 +241,8 @@ public class playground extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         handler.removeCallbacks(myrunnable);
+
+                        highscoreSetter();
                         finish();
                     }
                 })
